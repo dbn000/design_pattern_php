@@ -2,7 +2,7 @@
 
 namespace DesignPattern\Creational\Singleton;
 
-use DesignPattern\Template\SingletonInterface;
+use DesignPattern\Creational\Singleton\SingletonInterface;
 
 class Singleton implements SingletonInterface
 {

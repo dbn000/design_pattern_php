@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPattern\Template;
+namespace DesignPattern\Creational\Singleton;
 
 interface SingletonInterface
 {
