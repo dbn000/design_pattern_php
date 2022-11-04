@@ -1,13 +1,14 @@
-# Kata PHP Skeleton
+# Design Patterns PHP
 
-Dockerized PHP skeleton for coding katas.
-This skeleton for katas could be used with local or docker environment.
+Dockerized PHP skeleton to review design patterns in PHP.
+
+This repository is based on https://github.com/nachosalvador/kata-php-skeleton
 
 ## Local environment
 
 ### Requirements
 
-* PHP 7.1
+* PHP 8.1
 * [Composer](https://getcomposer.org/download/)
 
 ### Installation
@@ -35,13 +36,13 @@ $ vendor/bin/phpunit
 Create docker image and install project dependencies:
 
 ```bash
-$ make kata-build
+$ make go-build
 ```
 
 ### Testing
 
 ```bash
-$ make kata-tests
+$ make go-tests
 ```
 
 ## License
