@@ -1,0 +1,6 @@
+<?php
+
+interface Factory
+{
+    # code...
+}
