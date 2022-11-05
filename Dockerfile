@@ -1,6 +1,6 @@
 FROM php:8.1-fpm
 
-LABEL maintainer="Nacho Salvador <nachosalvador83@gmail.com>"
+LABEL maintainer="Pablo Dobón <dbn000@gmail.com>"
 
 RUN apt-get clean
 RUN apt-get update && apt-get install -y \
