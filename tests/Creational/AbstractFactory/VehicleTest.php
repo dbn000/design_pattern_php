@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace DesignPattern\Tests\Creational;
 
-use DesignPattern\Creational\AbstractFactory\AbstractAutomovil;
+use DesignPattern\Creational\AbstractFactory\AbstractCar;
 use DesignPattern\Creational\AbstractFactory\AbstractScooter;
-use DesignPattern\Creational\AbstractFactory\FabricaVehiculoGasolina;
-use DesignPattern\Creational\AbstractFactory\FabricaVehiculoElectricidad;
+use DesignPattern\Creational\AbstractFactory\GasolineVehicleBuilder;
+use DesignPattern\Creational\AbstractFactory\ElectricVehicleBuilder;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -17,40 +17,40 @@ use PHPUnit\Framework\TestCase;
  */
 class VehicleTest extends TestCase
 {
-    private const STRING_MARCA = "test_nombre";
+    private const STRING_BRAND = "test_nombre";
     private const STRING_COLOR = "test_color";
-    private const INT_POTENCIA = 5;
-    private const FLOAT_ESPACIO =  1.1;
+    private const INT_ENGINE = 5;
+    private const FLOAT_CABIN_SPACE =  1.1;
 
     /**
      * @testVehiculoGasolina
      */
-    public function testVehiculoGasolina(): void
+    public function testGasolineVehicle(): void
     {
-        $fabricaVehiculoGasolina = new FabricaVehiculoGasolina();
-        $automovilGasolina = $fabricaVehiculoGasolina->creaAutomovil(
-            self::STRING_MARCA,
+        $gasolineBuilder = new GasolineVehicleBuilder();
+        $gasolineVehicle = $gasolineBuilder->createCar(
+            self::STRING_BRAND,
             self::STRING_COLOR,
-            self::INT_POTENCIA,
-            self::FLOAT_ESPACIO
+            self::INT_ENGINE,
+            self::FLOAT_CABIN_SPACE
         );
 
-        $scooterGasolina = $fabricaVehiculoGasolina->creaScooter(
-            self::STRING_MARCA,
+        $gasolineScooter = $gasolineBuilder->createScooter(
+            self::STRING_BRAND,
             self::STRING_COLOR,
-            self::INT_POTENCIA
+            self::INT_ENGINE
         );
 
         $this->assertContainsOnlyInstancesOf(
-            AbstractAutomovil::class, 
+            AbstractCar::class,
             [
-                $automovilGasolina
+                $gasolineVehicle
             ]
         );
         $this->assertContainsOnlyInstancesOf(
             AbstractScooter::class, 
             [
-                $scooterGasolina
+                $gasolineScooter
             ]
         );
 
@@ -59,32 +59,32 @@ class VehicleTest extends TestCase
     /**
      * @testVehiculoElectricidad
      */
-    public function testVehiculoElectricidad(): void
+    public function testElectricVehicle(): void
     {
-        $fabricaVehiculoElectricidad = new FabricaVehiculoElectricidad();
-        $automovilElectricidad = $fabricaVehiculoElectricidad->creaAutomovil(
-            self::STRING_MARCA,
+        $electricBuilder = new ElectricVehicleBuilder();
+        $electricCar = $electricBuilder->createCar(
+            self::STRING_BRAND,
             self::STRING_COLOR,
-            self::INT_POTENCIA,
-            self::FLOAT_ESPACIO
+            self::INT_ENGINE,
+            self::FLOAT_CABIN_SPACE
         );
 
-        $scooterElectricidad = $fabricaVehiculoElectricidad->creaScooter(
-            self::STRING_MARCA,
+        $electricScooter = $electricBuilder->createScooter(
+            self::STRING_BRAND,
             self::STRING_COLOR,
-            self::INT_POTENCIA
+            self::INT_ENGINE
         );
 
         $this->assertContainsOnlyInstancesOf(
-            AbstractAutomovil::class, 
+            AbstractCar::class,
             [
-                $automovilElectricidad
+                $electricCar
             ]
         );
         $this->assertContainsOnlyInstancesOf(
             AbstractScooter::class, 
             [
-                $scooterElectricidad
+                $electricScooter
             ]
         );
 

@@ -6,14 +6,14 @@ namespace DesignPattern\Creational\AbstractFactory;
 
 use DesignPattern\Creational\AbstractFactory\AbstractScooter;
 
-class ScooterElectricidad extends AbstractScooter
+class ElectricScooter extends AbstractScooter
 {
     public function getData(): void
     {
         echo json_encode([
-            'marca' => $this->marca,
+            'brand' => $this->brand,
             'color' => $this->color,
-            'potencia' => $this->potencia,
+            'engine' => $this->engine,
         ]);
     }
 }
