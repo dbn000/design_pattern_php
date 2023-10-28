@@ -8,18 +8,18 @@ class PdfDocumentBuilder extends AbstractVehicleDocumentBuilder{
 
     public function __construct()
     {
-        $this->documentacion = new PdfBuilder();
+        $this->documentGenerator = new PdfDocumentGeneratorBuilder();
     }
-    public function generaFormularioPedido(string $nombreCliente):void
+    public function generateOrderForm(string $clientName):void
     {
-        $documento = "<Pdf> Formulario de solicitud del cliente:  ${nombreCliente} </Pdf>";
-        $this->documentacion->agregaDocumento($documento);
+        $document = "<Pdf> Formulario de solicitud del cliente:  ${$clientName} </Pdf>";
+        $this->documentGenerator->addDocument($document);
 
     }
-    public function generaSolicitudMatriculacion(string $nombreSolicitante):void
+    public function generateLicensePlateRequest(string $applicantName):void
     {
-        $documento = "<Pdf> Solicitud de matriculación de:  ${nombreSolicitante} </Pdf>";
-        $this->documentacion->agregaDocumento($documento);
+        $document = "<Pdf> Solicitud de matriculación de:  ${$applicantName} </Pdf>";
+        $this->documentGenerator->addDocument($document);
     }
 
 }

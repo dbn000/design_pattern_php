@@ -8,18 +8,18 @@ class HtmlDocumentBuilder extends AbstractVehicleDocumentBuilder{
 
     public function __construct()
     {
-        $this->documentacion = new HtmlBuilder();
+        $this->documentGenerator = new HtmlDocumentGeneratorBuilder();
     }
-    public function generaFormularioPedido(string $nombreCliente):void
+    public function generateOrderForm(string $clientName):void
     {
-        $documento = "<html> Formulario de solicitud del cliente: ${nombreCliente} </html>";
-        $this->documentacion->agregaDocumento($documento);
+        $document = "<html> Formulario de solicitud del cliente: ${$clientName} </html>";
+        $this->documentGenerator->addDocument($document);
 
     }
-    public function generaSolicitudMatriculacion(string $nombreSolicitante):void
+    public function generateLicensePlateRequest(string $applicantName):void
     {
-        $documento = "<html> Solicitud de matriculación de: ${nombreSolicitante} </html>";
-        $this->documentacion->agregaDocumento($documento);
+        $document = "<html> Solicitud de matriculación de: ${$applicantName} </html>";
+        $this->documentGenerator->addDocument($document);
     }
 
 }

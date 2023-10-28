@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace DesignPattern\Creational\Builder;
 
 use DesignPattern\Creational\Builder\AbstractVehicleDocumentBuilder;
-use DesignPattern\Creational\Builder\AbstractBuilder;
+use DesignPattern\Creational\Builder\AbstractDocumentGeneratorBuilder;
 
 class Seller {
-    protected AbstractVehicleDocumentBuilder $constructorDocumentacionVehiculo;
+    protected AbstractVehicleDocumentBuilder $abstractDocumentBuilder;
 
     public function __construct(
         AbstractVehicleDocumentBuilder $constructorDocumentacion
     )
     {
-        $this->constructorDocumentacionVehiculo = $constructorDocumentacion;
+        $this->abstractDocumentBuilder = $constructorDocumentacion;
     }
 
-    public function genera(string $nombreCliente): AbstractBuilder
+    public function genera(string $nombreCliente): AbstractDocumentGeneratorBuilder
     {
-        $this->constructorDocumentacionVehiculo->generaFormularioPedido($nombreCliente);
-        $this->constructorDocumentacionVehiculo->generaSolicitudMatriculacion($nombreCliente);
-        return $this->constructorDocumentacionVehiculo->resultado();
+        $this->abstractDocumentBuilder->generateOrderForm($nombreCliente);
+        $this->abstractDocumentBuilder->generateLicensePlateRequest($nombreCliente);
+        return $this->abstractDocumentBuilder->result();
     }
 }

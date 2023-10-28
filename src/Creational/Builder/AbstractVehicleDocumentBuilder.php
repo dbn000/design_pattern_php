@@ -6,14 +6,14 @@ namespace DesignPattern\Creational\Builder;
 
 abstract class AbstractVehicleDocumentBuilder{
 
-    protected AbstractBuilder $documentation;
+    protected AbstractDocumentGeneratorBuilder $documentGenerator;
     
-    public function resultado(): AbstractBuilder
+    public function result(): AbstractDocumentGeneratorBuilder
     {
-        return $this->documentation;
+        return $this->documentGenerator;
     }
 
-    abstract public function generaFormularioPedido(string $nombreCliente):void;
-    abstract public function generaSolicitudMatriculacion(string $nombreSolicitante):void;
+    abstract public function generateOrderForm(string $clientName):void;
+    abstract public function generateLicensePlateRequest(string $applicantName):void;
 
 }
