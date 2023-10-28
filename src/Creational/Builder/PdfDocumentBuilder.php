@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace DesignPattern\Creational\Builder;
 
-class ConstructorDocumentacionPdf extends AbstractConstructorDocumentacionVehiculo{
+class PdfDocumentBuilder extends AbstractVehicleDocumentBuilder{
 
     public function __construct()
     {
-        $this->documentacion = new DocumentacionPdf();
+        $this->documentacion = new PdfBuilder();
     }
     public function generaFormularioPedido(string $nombreCliente):void
     {

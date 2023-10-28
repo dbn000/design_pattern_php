@@ -3,15 +3,14 @@
 declare(strict_types=1);
 
 namespace DesignPattern\Creational\Builder;
-use DesignPattern\Creational\Builder\AbstractDocumentacion;
 
-abstract class AbstractConstructorDocumentacionVehiculo{
+abstract class AbstractVehicleDocumentBuilder{
 
-    protected AbstractDocumentacion $documentacion;
+    protected AbstractBuilder $documentation;
     
-    public function resultado(): AbstractDocumentacion
+    public function resultado(): AbstractBuilder
     {
-        return $this->documentacion;
+        return $this->documentation;
     }
 
     abstract public function generaFormularioPedido(string $nombreCliente):void;

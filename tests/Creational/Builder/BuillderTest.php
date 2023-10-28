@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace DesignPattern\Tests\Creational;
 
-use DesignPattern\Creational\Builder\AbstractConstructorDocumentacionVehiculo;
-use DesignPattern\Creational\Builder\AbstractDocumentacion;
-use DesignPattern\Creational\Builder\ConstructorDocumentacionHtml;
-use DesignPattern\Creational\Builder\DocumentacionHtml;
-use DesignPattern\Creational\Builder\DocumentacionPdf;
-use DesignPattern\Creational\Builder\Vendedor;
+use DesignPattern\Creational\Builder\AbstractVehicleDocumentBuilder;
+use DesignPattern\Creational\Builder\AbstractBuilder;
+use DesignPattern\Creational\Builder\HtmlDocumentBuilder;
+use DesignPattern\Creational\Builder\HtmlBuilder;
+use DesignPattern\Creational\Builder\PdfBuilder;
+use DesignPattern\Creational\Builder\PdfDocumentBuilder;
+use DesignPattern\Creational\Builder\Seller;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -19,27 +20,66 @@ use PHPUnit\Framework\TestCase;
  */
 class BuillderTest extends TestCase
 {
+
+    private string $name = 'ValidName';
+    private string $documentText = 'Valid document text to print. Enjoy!';
+    private array $methodSellerList = [
+        'genera'
+    ];
+    private array $methodAbstractDocumentList = [
+        'agregaDocumento',
+        'imprime'
+    ];
+    private array $methodAbstractDocumentBuilderList = [
+        'generaFormularioPedido',
+        'generaSolicitudMatriculacion'
+    ];
+
     public function testDocumentationHtml(): void
     {
-        $documentacion = new DocumentacionHtml();
-        $this->assertInstanceOf(AbstractDocumentacion::class, $documentacion);
+        $documentation = new HtmlBuilder();
+        $this->assertInstanceOf(AbstractBuilder::class, $documentation);
+        foreach ($this->methodAbstractDocumentList as $methodAbstractDocument) {
+            $this->assertTrue(method_exists($documentation,$methodAbstractDocument));
+        }
     }
+
     public function testDocumentationPdf(): void
     {
-        $documentacion = new DocumentacionPdf();
-        $this->assertInstanceOf(AbstractDocumentacion::class, $documentacion);
+        $documentation = new PdfBuilder();
+        $this->assertInstanceOf(AbstractBuilder::class, $documentation);
     }
 
-    public function testConstructorDocumentacionHtml()
+    public function testDocumentationHtmlBuilder()
     {
-        $constructorDocumentacionHtml = new ConstructorDocumentacionHtml();
-        $this->assertInstanceOf(AbstractConstructorDocumentacionVehiculo::class, $constructorDocumentacionHtml);
+        $constructorDocumentationHtml = new HtmlDocumentBuilder();
+        $this->assertInstanceOf(AbstractVehicleDocumentBuilder::class, $constructorDocumentationHtml);
+
+        foreach ($this->methodAbstractDocumentBuilderList as $method) {
+            $this->assertTrue(method_exists($constructorDocumentationHtml,$method));
+        }
     }
 
-    public function testVendedor()
+    public function testDocumentationPdfBuilder()
     {
-        $vendedor = new Vendedor(new ConstructorDocumentacionHtml());
-        $this->assertTrue(method_exists($vendedor, 'genera'));
+        $constructorDocumentationPdf = new PdfDocumentBuilder();
+        $this->assertInstanceOf(AbstractVehicleDocumentBuilder::class, $constructorDocumentationPdf);
+
+        foreach ($this->methodAbstractDocumentBuilderList as $method) {
+            $this->assertTrue(method_exists($constructorDocumentationPdf,$method));
+        }
+    }
+
+    public function testSeller()
+    {
+        $seller = new Seller(new HtmlDocumentBuilder());
+        foreach ($this->methodSellerList as $methodSeller) {
+            $this->assertTrue(method_exists($seller,$methodSeller));
+        }
+        $seller = new Seller(new PdfDocumentBuilder());
+        foreach ($this->methodSellerList as $methodSeller) {
+            $this->assertTrue(method_exists($seller,$methodSeller));
+        }
     }
 
 }

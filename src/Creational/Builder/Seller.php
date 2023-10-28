@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace DesignPattern\Creational\Builder;
 
-use DesignPattern\Creational\Builder\AbstractConstructorDocumentacionVehiculo;
-use DesignPattern\Creational\Builder\AbstractDocumentacion;
+use DesignPattern\Creational\Builder\AbstractVehicleDocumentBuilder;
+use DesignPattern\Creational\Builder\AbstractBuilder;
 
-class Vendedor {
-    protected AbstractConstructorDocumentacionVehiculo $constructorDocumentacionVehiculo;
+class Seller {
+    protected AbstractVehicleDocumentBuilder $constructorDocumentacionVehiculo;
 
     public function __construct(
-        AbstractConstructorDocumentacionVehiculo $constructorDocumentacion
+        AbstractVehicleDocumentBuilder $constructorDocumentacion
     )
     {
         $this->constructorDocumentacionVehiculo = $constructorDocumentacion;
     }
 
-    public function genera(string $nombreCliente): AbstractDocumentacion
+    public function genera(string $nombreCliente): AbstractBuilder
     {
         $this->constructorDocumentacionVehiculo->generaFormularioPedido($nombreCliente);
         $this->constructorDocumentacionVehiculo->generaSolicitudMatriculacion($nombreCliente);

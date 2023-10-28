@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package DesignPattern\Creational\AbstractFactory
  */
-class VehicleTest extends TestCase
+class AbstractFactoryTest extends TestCase
 {
     private const STRING_BRAND = "test_nombre";
     private const STRING_COLOR = "test_color";

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace DesignPattern\Creational\Builder;
 
-class ConstructorDocumentacionHtml extends AbstractConstructorDocumentacionVehiculo{
+class HtmlDocumentBuilder extends AbstractVehicleDocumentBuilder{
 
     public function __construct()
     {
-        $this->documentacion = new DocumentacionHtml();
+        $this->documentacion = new HtmlBuilder();
     }
     public function generaFormularioPedido(string $nombreCliente):void
     {
