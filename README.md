@@ -36,13 +36,13 @@ $ vendor/bin/phpunit
 Create docker image and install project dependencies:
 
 ```bash
-$ make go-build
+$ make build
 ```
 
 ### Testing
 
 ```bash
-$ make go-tests
+$ make tests
 ```
 
 ## License

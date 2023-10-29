@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DesignPattern\Tests\Factory;
+namespace DesignPattern\Tests\Creational\Factory;
 
 use DesignPattern\Creational\Factory\AbstractClient;
 use DesignPattern\Creational\Factory\AbstractOrder;
