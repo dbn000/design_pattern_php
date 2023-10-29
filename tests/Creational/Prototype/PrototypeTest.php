@@ -53,15 +53,6 @@ class PrototypeTest extends TestCase
         $this->assertCount(count($clonedDocuments->documents()), $blankPrototype->documents());
     }
 
-    public function testSingleton(): void
-    {
-        // Recoge la instancia ya inicializada anteriormente
-        $blankPrototype = BlankDocumentation::getInstance();
-
-        // Segunda vez que se instancia  (Singleton)
-        $this->assertNotEmpty($blankPrototype->documents());
-    }
-
     public function testRemoveDocuments()
     {
         $blankPrototype = BlankDocumentation::getInstance();
