@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace DesignPattern\Creational\Factory;
 
 
-abstract class AbstractRespuestaPedido {
+abstract class AbstractOrderResponse {
 
     public int $status;
     public string $message;
@@ -16,5 +16,5 @@ abstract class AbstractRespuestaPedido {
         $this->message = $message;        
     }
 
-    abstract public function resumenPedido(): AbstractRespuestaPedido;
+    abstract public function orderSummary(): AbstractOrderResponse;
 }

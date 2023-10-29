@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace DesignPattern\Tests\Creational;
+namespace DesignPattern\Tests\Factory;
 
-use DesignPattern\Creational\Factory\AbstractCliente;
-use DesignPattern\Creational\Factory\AbstractPedido;
-use DesignPattern\Creational\Factory\AbstractRespuestaPedido;
-use DesignPattern\Creational\Factory\ClienteContado;
-use DesignPattern\Creational\Factory\ClienteCredito;
-use DesignPattern\Creational\Factory\RespuestaPedidoContado;
+use DesignPattern\Creational\Factory\AbstractClient;
+use DesignPattern\Creational\Factory\AbstractOrder;
+use DesignPattern\Creational\Factory\AbstractOrderResponse;
+use DesignPattern\Creational\Factory\CashClient;
+use DesignPattern\Creational\Factory\CreditClient;
+use DesignPattern\Creational\Factory\CashOrderResponse;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,40 +20,42 @@ use PHPUnit\Framework\TestCase;
 class FactoryTest extends TestCase
 {
 
-    private const CANTIDAD_CONTADO_OK = 500;
-    private const CANTIDAD_CREDITO_OK = 4000;
-    private const CANTIDAD_CREDITO_KO = 60000;
+    private const QUANTITY_CASH_OK = 500;
+    private const QUANTITY_CREDIT_OK = 4000;
+    private const QUANTITY_CREDIT_KO = 60000;
 
-    public function testAbstractCliente(): void
+    public function testAbstractClient(): void
     {
-        $clienteContado = new ClienteContado();
-        $this->assertInstanceOf(AbstractCliente::class, $clienteContado);
+        $cashClient = new CashClient();
+        $this->assertInstanceOf(AbstractClient::class, $cashClient);
+        $creditClient = new CreditClient();
+        $this->assertInstanceOf(AbstractClient::class, $creditClient);
     }
 
-    public function testRespuestaPedidoContado(): void
+    public function testCashOrderResponse(): void
     {
-        $clienteContado = new ClienteContado();
-        $clienteContado->nuevoPedido(self::CANTIDAD_CONTADO_OK);
-        $respuestaPedido = $clienteContado->mostrarRespuestasPedido()[0] ?? null;
-        $this->assertEquals($respuestaPedido->status, AbstractPedido::STATUS_PEDIDO_OK);
+        $cashClient = new CashClient();
+        $cashClient->newOrder(self::QUANTITY_CASH_OK);
+        $orderResponse = $cashClient->orderResponseList()[0] ?? null;
+        $this->assertEquals($orderResponse->status, AbstractOrder::STATUS_OK);
     }
 
-    public function testRespuestaPedidoCreditoOk(): void
+    public function testCreditOrderResponseOk(): void
     {
-        $clienteCredito = new ClienteCredito();
-        $clienteCredito->nuevoPedido(self::CANTIDAD_CREDITO_OK);
-        $respuestaPedido = $clienteCredito->mostrarRespuestasPedido();
-        $this->assertIsArray($respuestaPedido);
-        $this->assertNotEmpty($respuestaPedido);
-        $this->assertEquals($respuestaPedido[0]->status, AbstractPedido::STATUS_PEDIDO_OK);
+        $creditClient = new CreditClient();
+        $creditClient->newOrder(self::QUANTITY_CREDIT_OK);
+        $orderResponse = $creditClient->orderResponseList();
+        $this->assertIsArray($orderResponse);
+        $this->assertNotEmpty($orderResponse);
+        $this->assertEquals($orderResponse[0]->status, AbstractOrder::STATUS_OK);
     }
 
-    public function testRespuestaPedidoCreditoKo(): void
+    public function testCreditOrderResponseKo(): void
     {
-        $clienteCredito = new ClienteCredito();
-        $clienteCredito->nuevoPedido(self::CANTIDAD_CREDITO_KO);
-        $respuestaPedido = $clienteCredito->mostrarRespuestasPedido();
-        $this->assertIsArray($respuestaPedido);
-        $this->assertEmpty($respuestaPedido);
+        $creditClient = new CreditClient();
+        $creditClient->newOrder(self::QUANTITY_CREDIT_KO);
+        $orderResponse = $creditClient->orderResponseList();
+        $this->assertIsArray($orderResponse);
+        $this->assertEmpty($orderResponse);
     }
 }

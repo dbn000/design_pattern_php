@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace DesignPattern\Creational\Factory;
 
-class RespuestaPedidoContado extends AbstractRespuestaPedido {
+class CashOrderResponse extends AbstractOrderResponse {
 
-    public function resumenPedido(): RespuestaPedidoContado
+    public function orderSummary(): CashOrderResponse
     {
         return new self($this->status, $this->message);
     }
