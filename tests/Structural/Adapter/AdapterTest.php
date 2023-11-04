@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace DesignPattern\Tests\Structural;
 
-use DesignPattern\Structural\Adapter\DocumentoHtml;
-use DesignPattern\Structural\Adapter\DocumentoPdf;
-use DesignPattern\Structural\Adapter\EntityDibujo;
+use DesignPattern\Structural\Adapter\DocHtml;
+use DesignPattern\Structural\Adapter\DocPdf;
+use DesignPattern\Structural\Adapter\EntityPicture;
+use DesignPattern\Structural\Adapter\EntityDocument;
 use PHPUnit\Framework\TestCase;
 
 class AdapterTest extends TestCase
@@ -19,28 +20,28 @@ class AdapterTest extends TestCase
     {
         $this->assertTrue(true);
 
-        /*$contenidoHtml = "Contenido de prueba HTML";
+        $contentHtml = "<html>  DOC DE PRUEBA HTML </html>";
 
-        $documentoHtml = new DocumentoHtml();
-        $documentoHtml->setContenido($contenidoHtml);
+        $htmlDoc = new DocHtml();
+        $htmlDoc->setContent($contentHtml);
+        var_dump($htmlDoc);
 
-        $htmlEntityDibuja = $documentoHtml->dibuja();
-        $this->assertInstanceOf(EntityDibujo::class, $htmlEntityDibuja);
+        $htmlEntityDraw = $htmlDoc->draw();
+        $this->assertInstanceOf(EntityDocument::class, $htmlEntityDraw);
+
+        $htmlEntityPrint = $htmlDoc->print();
+        $this->assertInstanceOf(EntityDocument::class, $htmlEntityPrint);
 
 
-        $htmlEntityImprime = $documentoHtml->imprime();
-        $this->assertInstanceOf(EntityHtml::class, $htmlEntityImprime);
+        $pdfContent = "Contenido de prueba PDF";
 
+        $pdfDocument = new DocPdf();
+        $pdfDocument->setContent($pdfContent);
 
-        $contenidopDF = "Contenido de prueba PDF";
+        $pdfEntityDraw =$pdfDocument->draw();
+        $this->assertInstanceOf(EntityDocument::class, $pdfEntityDraw);
 
-        $documentoPdf = new DocumentoPdf();
-        $documentoPdf->setContenido($contenidopDF);
-
-        $pdfEntityDibuja =$documentoPdf->dibuja();
-        $this->assertInstanceOf(EntityDibujo::class, $pdfEntityDibuja);
-
-        $pdfEntityImprime = $documentoPdf->imprime();
-        $this->assertInstanceOf(EntityHtml::class, $pdfEntityImprime);*/
+        $pdfEntityPrint = $pdfDocument->print();
+        $this->assertInstanceOf(EntityDocument::class, $pdfEntityPrint);/**/
     }
 }

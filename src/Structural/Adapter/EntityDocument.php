@@ -5,7 +5,7 @@ namespace DesignPattern\Structural\Adapter;
 
 class EntityDocument
 {
-    protected $contenido;
+    protected string $contenido;
 
     public function __construct(string $contenido)
     {

@@ -1,10 +1,14 @@
 <?php
 
 declare (strict_types=1);
-namespace DesignPattern\Structural\Adapter;
+namespace DesignPattern\Structural\Adapter\ThirdParty;
 
-class ComponentePdf
+class ExternalPdfComponent
 {
+
+    /**
+     * Simulacion de componente externo de terceros al que debemos adaptarnos
+     */
     protected string $contenido;
 
     public function pdfFijaContenido(string $contenido): void

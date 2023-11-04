@@ -12,10 +12,10 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Instala la extensión Xdebug.
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
-
-ENV XDEBUG_CONFIG="remote_host=host.docker.internal"
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+    && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.client_host = host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Setup working directory.
 WORKDIR /app
