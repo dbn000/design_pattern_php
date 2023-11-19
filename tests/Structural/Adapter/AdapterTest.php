@@ -24,7 +24,6 @@ class AdapterTest extends TestCase
 
         $htmlDoc = new DocHtml();
         $htmlDoc->setContent($contentHtml);
-        var_dump($htmlDoc);
 
         $htmlEntityDraw = $htmlDoc->draw();
         $this->assertInstanceOf(EntityDocument::class, $htmlEntityDraw);

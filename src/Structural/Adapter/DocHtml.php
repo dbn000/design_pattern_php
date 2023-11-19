@@ -5,7 +5,7 @@ namespace DesignPattern\Structural\Adapter;
 
 class DocHtml implements DocInterface
 {
-    protected $content;
+    protected string $content;
     
 	/**
 	 * @param string $content
