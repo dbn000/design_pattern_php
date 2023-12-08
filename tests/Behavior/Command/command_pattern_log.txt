@@ -1,0 +1,6 @@
+2023-12-08 20:44:59: Class: DesignPattern\Behavior\Command\PrintJobCommand
+2023-12-08 20:44:59: {"action":1,"message":"Print: {\"uid\":4691411,\"name\":\"print_work_4691411\"}"}
+2023-12-08 20:44:59: Class: DesignPattern\Behavior\Command\DataProcessCommand
+2023-12-08 20:44:59: {"action":2,"message":"DataProcess: {\"settings\":\"bw\",\"resolution\":\"hd\"}"}
+2023-12-08 20:44:59: Class: DesignPattern\Behavior\Command\SendMailCommand
+2023-12-08 20:44:59: {"action":3,"message":"Send Mail: {\"email\":\"test@test.com\",\"subject\":\"Subject mail\"}"}
