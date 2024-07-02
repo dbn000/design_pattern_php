@@ -4,3 +4,27 @@
 2023-12-08 20:44:59: {"action":2,"message":"DataProcess: {\"settings\":\"bw\",\"resolution\":\"hd\"}"}
 2023-12-08 20:44:59: Class: DesignPattern\Behavior\Command\SendMailCommand
 2023-12-08 20:44:59: {"action":3,"message":"Send Mail: {\"email\":\"test@test.com\",\"subject\":\"Subject mail\"}"}
+2024-06-16 10:30:29: Class: DesignPattern\Behavior\Command\PrintJobCommand
+2024-06-16 10:30:29: {"action":1,"message":"Print: {\"uid\":5268515,\"name\":\"print_work_5268515\"}"}
+2024-06-16 10:30:29: Class: DesignPattern\Behavior\Command\DataProcessCommand
+2024-06-16 10:30:29: {"action":2,"message":"DataProcess: {\"settings\":\"bw\",\"resolution\":\"hd\"}"}
+2024-06-16 10:30:29: Class: DesignPattern\Behavior\Command\SendMailCommand
+2024-06-16 10:30:29: {"action":3,"message":"Send Mail: {\"email\":\"test@test.com\",\"subject\":\"Subject mail\"}"}
+2024-06-16 10:31:19: Class: DesignPattern\Behavior\Command\PrintJobCommand
+2024-06-16 10:31:19: {"action":1,"message":"Print: {\"uid\":9242523,\"name\":\"print_work_9242523\"}"}
+2024-06-16 10:31:19: Class: DesignPattern\Behavior\Command\DataProcessCommand
+2024-06-16 10:31:19: {"action":2,"message":"DataProcess: {\"settings\":\"bw\",\"resolution\":\"hd\"}"}
+2024-06-16 10:31:19: Class: DesignPattern\Behavior\Command\SendMailCommand
+2024-06-16 10:31:19: {"action":3,"message":"Send Mail: {\"email\":\"test@test.com\",\"subject\":\"Subject mail\"}"}
+2024-06-16 10:39:22: Class: DesignPattern\Behavior\Command\PrintJobCommand
+2024-06-16 10:39:22: {"action":1,"message":"Print: {\"uid\":3804986,\"name\":\"print_work_3804986\"}"}
+2024-06-16 10:39:22: Class: DesignPattern\Behavior\Command\DataProcessCommand
+2024-06-16 10:39:22: {"action":2,"message":"DataProcess: {\"settings\":\"bw\",\"resolution\":\"hd\"}"}
+2024-06-16 10:39:22: Class: DesignPattern\Behavior\Command\SendMailCommand
+2024-06-16 10:39:22: {"action":3,"message":"Send Mail: {\"email\":\"test@test.com\",\"subject\":\"Subject mail\"}"}
+2024-06-16 10:40:34: Class: DesignPattern\Behavior\Command\PrintJobCommand
+2024-06-16 10:40:34: {"action":1,"message":"Print: {\"uid\":7939432,\"name\":\"print_work_7939432\"}"}
+2024-06-16 10:40:34: Class: DesignPattern\Behavior\Command\DataProcessCommand
+2024-06-16 10:40:34: {"action":2,"message":"DataProcess: {\"settings\":\"bw\",\"resolution\":\"hd\"}"}
+2024-06-16 10:40:34: Class: DesignPattern\Behavior\Command\SendMailCommand
+2024-06-16 10:40:34: {"action":3,"message":"Send Mail: {\"email\":\"test@test.com\",\"subject\":\"Subject mail\"}"}
