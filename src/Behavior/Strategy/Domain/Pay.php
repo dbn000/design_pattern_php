@@ -2,7 +2,7 @@
 
 namespace DesignPattern\Behavior\Strategy\Domain;
 
-use DesignPattern\Behavior\Strategy\PayNotvalidException;
+use DesignPattern\Behavior\Strategy\Domain\PayNotValidException;
 use DesignPattern\Behavior\Strategy\Transaction;
 
 interface Pay
@@ -12,7 +12,7 @@ interface Pay
 
     /**
      * @return bool
-     * @throws PayNotvalidException
+     * @throws PayNotValidException
      */
     public function validate(): bool;
 
