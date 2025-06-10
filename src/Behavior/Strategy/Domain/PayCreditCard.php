@@ -3,6 +3,7 @@
 namespace DesignPattern\Behavior\Strategy\Domain;
 
 use DesignPattern\Behavior\Strategy\Transaction;
+use DesignPattern\Behavior\Strategy\Domain\PayNotValidException;
 
 class PayCreditCard implements Pay
 {
@@ -28,7 +29,7 @@ class PayCreditCard implements Pay
         }
 
         if ($this->transaction->balance < $this->transaction->amount) {
-            throw new PayNotvalidException();
+            throw new PayNotValidException();
         }
         return true;
     }

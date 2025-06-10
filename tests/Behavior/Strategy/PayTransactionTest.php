@@ -15,7 +15,7 @@ class PayTransactionTest extends TestCase
 
     public function test_it_should_throw_an_exception_if_the_transaction_is_not_valid(): void
     {
-        $this->expectException(\PayNotvalidException::class);
+        $this->expectException(\DesignPattern\Behavior\Strategy\Domain\PayNotValidException::class);
         $pay = TransactionMother::create(1, 0);
         $pay->pay(new TransactionCreditCard());
     }
